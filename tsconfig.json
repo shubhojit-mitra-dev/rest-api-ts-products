@@ -23,7 +23,7 @@
     "resolveJsonModule": true,
     "allowImportingTsExtensions": false,
   },
-  "include": ["src/**/*", "jest.config.js", "src/types/**/*.d.ts"],
+  "include": ["src/**/*", "eslint.config.js", "jest.config.js", "src/types/**/*.d.ts"],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"
