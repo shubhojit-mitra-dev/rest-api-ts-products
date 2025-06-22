@@ -1,6 +1,10 @@
 {
     "watch": ["src"],
-    "ignore": ["src/**/*.test.js", "src/**/*.spec.js"],
+    "ignore": ["node_modules", "src/**/*.test.js", "src/**/*.spec.js"],
     "ext": "ts, js, json",
-    "exec": "node --import tsx src/index.ts"
+    "exec": "node --import tsx src/index.ts",
+    "restartable": "rs",
+    "env": {
+        "NODE_ENV": "development"
+    }
 }

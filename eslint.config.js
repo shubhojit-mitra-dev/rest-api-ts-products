@@ -8,7 +8,7 @@ export default tseslint.config(
     ignores: ['build/**', 'dist/**', 'node_modules/**'],
   },
   {
-    files: ['**/*.{js,mjs,cjs,ts}'],
+    files: ['**/*.{js,mjs,cjs,ts}', 'jest.config.js'],
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
@@ -34,6 +34,9 @@ export default tseslint.config(
     },
     rules: {
       // TypeScript specific rules
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         { 
