@@ -1,12 +1,13 @@
 {
   "name": "rest-api-ts-products",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon",
-    "build": "tsc",
-    "start": "node build/index.js",
-    "preview": "npm run build && npm run start"
+    "start": "tsx build/index.js",
+    "lint": "eslint --ext .ts,.js src/",
+    "build": "yarn lint && tsc",
+    "preview": "yarn build && yarn start"
   },
   "keywords": [],
   "author": "Shubhojit Mitra <Shubhojit.120225@stu.upes.ac.in>",
@@ -30,6 +31,7 @@
     "@types/node": "^24.0.3",
     "@typescript-eslint/parser": "^8.34.1",
     "eslint": "^9.29.0",
+    "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import": "^2.32.0",
     "globals": "^16.2.0",
     "nodemon": "^3.1.10",

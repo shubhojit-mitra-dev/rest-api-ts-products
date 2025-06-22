@@ -1,9 +1,9 @@
-import express, { Request, Response } from 'express';
+import userRoutes from '@/routes/user.routes';
+import express from 'express';
 
 const app = express();
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, World!');
-});
+app.use(express.json());
+app.use('/api', userRoutes);
 
 export default app;

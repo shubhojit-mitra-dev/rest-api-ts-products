@@ -1,6 +1,7 @@
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import importPlugin from 'eslint-plugin-import'; // Add import plugin
 
 export default tseslint.config(
   {
@@ -18,6 +19,17 @@ export default tseslint.config(
       globals: globals.node,
       parserOptions: {
         projectService: true,
+      },
+    },
+    plugins: {
+      import: importPlugin, // Add this line to register the plugin
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          project: './tsconfig.json',
+        },
       },
     },
     rules: {
@@ -61,25 +73,11 @@ export default tseslint.config(
       'no-unused-vars': 'off',
       'import/no-unresolved': 'error',
       'import/extensions': ['error', 'never', { json: 'always' }],
-      'import/order': [
-        'error',
-        {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
-          ],
-          'newlines-between': 'always',
-        },
-      ],
     },
   },
   {
     linterOptions: {
       reportUnusedDisableDirectives: true,
     },
-  },
+  }
 );
