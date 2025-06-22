@@ -1,18 +1,12 @@
-import { z } from "zod";
-import dotenv from "dotenv";
+import { z } from 'zod';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 const envSchema = z.object({
   // DATABASE_URL: z.string().url("DATABASE_URL must be a valid URL"),
-  NODE_ENV: z
-    .enum(["development", "test", "production"])
-    .default("development"),
-  PORT: z
-    .string()
-    .transform(Number)
-    .pipe(z.number().positive())
-    .default("3000"),
+  NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
+  PORT: z.string().transform(Number).pipe(z.number().positive()).default('3000'),
 });
 
 const validateEnv = () => {
@@ -23,9 +17,9 @@ const validateEnv = () => {
       PORT: process.env.PORT,
     });
   } catch (error) {
-    console.error("❌ Invalid environment variables:");
+    console.error('❌ Invalid environment variables:');
     if (error instanceof z.ZodError) {
-      error.errors.forEach((err) => {
+      error.errors.forEach(err => {
         console.error(`- ${err.path.join('.')}: ${err.message}`);
       });
     } else {
