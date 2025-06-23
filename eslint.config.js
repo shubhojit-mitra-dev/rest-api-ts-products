@@ -5,7 +5,7 @@ import importPlugin from 'eslint-plugin-import'; // Add import plugin
 
 export default tseslint.config(
   {
-    ignores: ['build/**', 'dist/**', 'node_modules/**'],
+    ignores: ['build/**', 'dist/**', 'node_modules/**', 'coverage/**', './src/lib/prisma/**'],
   },
   {
     files: ['**/*.{js,mjs,cjs,ts}', 'jest.config.js'],
@@ -35,17 +35,18 @@ export default tseslint.config(
     rules: {
       // TypeScript specific rules
       // Consider enabling these rules and fixing type issues instead
-      '@typescript-eslint/no-unsafe-call': 'warn',
-      '@typescript-eslint/no-unsafe-member-access': 'warn',
-      '@typescript-eslint/no-unsafe-assignment': 'warn',
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { 
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_',
-        },
-      ],
+      // Consider enabling these rules and fixing type issues instead
+      // '@typescript-eslint/no-unsafe-call': 'warn',
+      // '@typescript-eslint/no-unsafe-member-access': 'warn',
+      // '@typescript-eslint/no-unsafe-assignment': 'warn',
+      // '@typescript-eslint/no-unused-vars': [
+      //   'warn',
+      //   { 
+      //     argsIgnorePattern: '^_',
+      //     varsIgnorePattern: '^_',
+      //     caughtErrorsIgnorePattern: '^_',
+      //   },
+      // ],
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/prefer-nullish-coalescing': 'error',
       '@typescript-eslint/prefer-optional-chain': 'error',

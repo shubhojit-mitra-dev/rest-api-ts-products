@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const envSchema = z.object({
-  // DATABASE_URL: z.string().url("DATABASE_URL must be a valid URL"),
+  DATABASE_URL: z.string().url("DATABASE_URL must be a valid URL"),
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.string().transform(Number).pipe(z.number().positive()).default('3000'),
 });
@@ -12,7 +12,7 @@ const envSchema = z.object({
 const validateEnv = () => {
   try {
     return envSchema.parse({
-      // DATABASE_URL: process.env.DATABASE_URL,
+      DATABASE_URL: process.env.DATABASE_URL,
       NODE_ENV: process.env.NODE_ENV,
       PORT: process.env.PORT,
     });
